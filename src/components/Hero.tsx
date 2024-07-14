@@ -10,30 +10,12 @@ import HeroBg5 from "../../public/hero-bg-5.jpg";
 import Image from "next/image";
 
 const Hero = () => {
-  const imageArray = [
-    HeroBg1,
-    HeroBg2,
-    HeroBg3,
-    HeroBg4,
-    HeroBg5,
-
-    // "bg-farm-bg-1",
-    // "bg-farm-bg-2",
-    // "bg-farm-bg-3",
-    // "bg-farm-bg-4",
-    // "bg-farm-bg-5",
-
-    // "url('../../public/hero-bg.png')",
-    // "url('../../public/hero-bg-2.jpg')",
-    // "url('../../public/hero-bg-3.jpg')",
-    // "url('../../public/hero-bg-4.jpg')",
-    // "url('../../public/hero-bg-5.jpg')",
-  ];
+  const imageArray = [HeroBg1, HeroBg2, HeroBg3, HeroBg4, HeroBg5];
   const [imgActiveIndex, setImgActiveIndex] = useState(0);
 
   useEffect(() => {
     let timer = setTimeout(() => {
-      setImgActiveIndex((imgActiveIndex + 1) % imageArray.length);
+      navigateNext();
     }, 5000);
 
     return () => {
@@ -41,16 +23,20 @@ const Hero = () => {
     };
   }, [imgActiveIndex]);
 
+  const navigateNext = () => {
+    setImgActiveIndex((imgActiveIndex + 1) % imageArray.length);
+  };
+
   return (
     <div
-      className={`relative w-full h-[100vh] bg-no-repeat bg-cover flex items-start justify-center flex-col`}
+      className={`relative w-full h-[100vh] flex items-start justify-center flex-col`}
     >
       <Image
         src={imageArray[imgActiveIndex]}
         width={0}
         height={0}
         sizes="100vh"
-        className="w-full h-full bg-cover absolute -z-10"
+        className="w-full h-full object-cover absolute -z-10"
         alt="img"
       />
       <p className="text-base text-white font-normal w-full md:w-3/4 pl-[10%] pb-3">
@@ -60,14 +46,23 @@ const Hero = () => {
         From our Farms to your hands
       </h1>
 
-      <div className="absolute bottom-0 left-0">
-        <Image
-          height={100}
-          width={100}
-          className="bg-cover"
-          src={imageArray[(imgActiveIndex + 1) % imageArray.length]}
-          alt="thumbnail"
-        />
+      <div className="absolute bottom-[5%] left-[10%]">
+        <div
+          className="border border-gray-500 p-4 relative cursor-pointer"
+          onClick={navigateNext}
+        >
+          <Image
+            height={0}
+            width={0}
+            sizes="100vh"
+            className="w-24 h-24 object-cover"
+            src={imageArray[(imgActiveIndex + 1) % imageArray.length]}
+            alt="thumbnail"
+          />
+          <span className="text-white text-sm font-normal absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            Next
+          </span>
+        </div>
       </div>
     </div>
   );
