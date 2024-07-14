@@ -37,3 +37,32 @@ body {
   transform-origin: 1.5px 2px;
   transform: rotate(-45deg);
 }
+
+/* .active-slide:hover + .slider {
+  transform: rotate(10deg) translateY(35px) translateX(24px);
+} */
+
+/* .swiper {
+  overflow-y: visible !important;
+} */
+/* .swiper {
+  width: 300px;
+  height: 500px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* 
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */

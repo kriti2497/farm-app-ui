@@ -11,13 +11,8 @@ const config: Config = {
       colors: {
         "hamburger-gray": "#F9F4EE",
         button: "#FFFCFA",
+        subtext: "#7A7777",
       },
-      // backgroundImage: {
-      //   "shorten-desktop": "url('../public/images/bg-shorten-desktop.svg')",
-      //   "shorten-mobile": "url('../public/images/bg-shorten-mobile.svg')",
-      //   "boost-mobile": "url('../public/images/bg-boost-mobile.svg')",
-      //   "boost-desktop": "url('../public/images/bg-boost-desktop.svg')",
-      // },
       backgroundImage: {
         "farm-bg-1": "url('../../public/hero-bg.png')",
         "farm-bg-2": "url('../../public/hero-bg-2.jpg')",
