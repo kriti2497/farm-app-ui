@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 import HeroBg1 from "../../public/hero-bg.png";
@@ -29,16 +30,32 @@ const Hero = () => {
 
   return (
     <div
-      className={`relative w-full h-[100vh] flex items-start justify-center flex-col`}
+      className={`relative w-full h-[100vh] flex items-start justify-center flex-col overflow-hidden`}
     >
-      <Image
-        src={imageArray[imgActiveIndex]}
-        width={0}
-        height={0}
-        sizes="100vh"
-        className="w-full h-full object-cover absolute -z-10"
-        alt="img"
-      />
+      <AnimatePresence>
+        <motion.div
+          key={imgActiveIndex}
+          initial={{ height: "0" }}
+          animate={{ height: "100vh" }}
+          exit={{ height: "101vh" }}
+          transition={{
+            height: {
+              bounce: 0,
+              duration: 1.5,
+            },
+          }}
+          className="w-full h-full absolute -z-10"
+        >
+          <Image
+            src={imageArray[imgActiveIndex]}
+            width={0}
+            height={0}
+            sizes="100vh"
+            className="w-full h-full object-cover"
+            alt="img"
+          />
+        </motion.div>
+      </AnimatePresence>
       <p className="text-base text-white font-normal w-full md:w-3/4 pl-[10%] pb-3">
         Welcome To TenTwenty Farms
       </p>
