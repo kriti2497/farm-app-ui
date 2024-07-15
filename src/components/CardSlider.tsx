@@ -43,7 +43,7 @@ const CardSlider = () => {
     },
   ];
   return (
-    <div className="m-10 overflow-visible">
+    <div className="my-10 overflow-visible">
       <div className="flex flex-col items-center mb-10 gap-10">
         <h1 className="text-2xl font-normal">Quality Products</h1>
         <p className="text-sm font-normal w-3/4 md:w-1/2 text-center text-subtext">
@@ -56,9 +56,10 @@ const CardSlider = () => {
       <Swiper
         slidesPerView={3}
         centeredSlides={true}
-        spaceBetween={50}
+        spaceBetween={35}
         grabCursor={true}
         initialSlide={1}
+        className="gap-52"
         // loop={true}
         // centeredSlidesBounds={true}
         onActiveIndexChange={(val) => setActiveIndex(val.activeIndex)}
@@ -66,7 +67,9 @@ const CardSlider = () => {
         {sliderImages.map((each, index) => (
           <SwiperSlide
             key={each.mainText}
-            className={`${activeIndex === index && "active-slide"} slider`}
+            className={`${activeIndex === index && "active-slide"} ${
+              activeIndex - 1 === index && "previous-slide"
+            } ${activeIndex + 1 === index && "next-slide"} slider`}
           >
             <Image
               src={each.img}

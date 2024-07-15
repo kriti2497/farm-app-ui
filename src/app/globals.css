@@ -38,13 +38,24 @@ body {
   transform: rotate(-45deg);
 }
 
-/* .active-slide:hover + .slider {
-  transform: rotate(10deg) translateY(35px) translateX(24px);
-} */
+.previous-slide {
+  transform: rotate(-10deg) translateY(35px) translateX(-24px) !important;
+}
 
-/* .swiper {
+.next-slide {
+  transform: rotate(10deg) translateY(35px) translateX(24px) !important;
+}
+
+.slider {
+  transition: all 0.2s;
+  cursor: url('data:image/svg+xml;utf8,<svg class="slider-cursor" xmlns="http://www.w3.org/2000/svg" stroke="%23FFFFFF" fill="%23FFFFFF" width="50px" height="50px" viewBox="0 0 10.04 10.04"><circle cx="5.02" cy="5.02" r="4.52"/></svg>')
+      10 10,
+    auto;
+}
+
+.swiper {
   overflow-y: visible !important;
-} */
+}
 /* .swiper {
   width: 300px;
   height: 500px;

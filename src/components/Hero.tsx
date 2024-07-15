@@ -63,7 +63,7 @@ const Hero = () => {
         From our Farms to your hands
       </h1>
 
-      <div className="absolute bottom-[5%] left-[10%]">
+      <div className="absolute flex items-center gap-5 bottom-[5%] left-[10%]">
         <div
           className="border border-gray-500 p-4 relative cursor-pointer"
           onClick={navigateNext}
@@ -79,6 +79,34 @@ const Hero = () => {
           <span className="text-white text-sm font-normal absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             Next
           </span>
+        </div>
+        <div className="flex gap-2 items-center text-white text-sm">
+          <div>
+            <AnimatePresence>
+              <motion.p
+                transition={{
+                  y: { bounce: 0 },
+                }}
+                key={imgActiveIndex}
+                initial={{
+                  y: 20,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                exit={{
+                  y: -20,
+                  opacity: 0,
+                }}
+              >
+                {(imgActiveIndex + 1).toString().padStart(2, "0")}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+          <hr className="w-12" />
+          {imageArray.length.toString().padStart(2, "0")}
         </div>
       </div>
     </div>
